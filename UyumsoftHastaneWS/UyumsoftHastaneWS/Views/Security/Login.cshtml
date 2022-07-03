@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@model UyumsoftHastaneWS.Models.Kullanicilar
+
+<body>
+    <div class="block-content-outer">
+        <div class="block-content-inner">
+            @ViewBag.mesaj
+            <form action="/Security/Login" method="post" role="form">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.kullaniciAdi)
+                    @Html.TextBoxFor(m => m.kullaniciAdi, new { @class = "form-control", placeholder = "Kullanıcı Adı" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.parola);
+                    @Html.PasswordFor(m => m.parola, new { @class = "form-control", placeholder = "Şifre" })
+                </div>
+                <button type="submit" class="btn btn-block btn-success">Giriş Yap</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+

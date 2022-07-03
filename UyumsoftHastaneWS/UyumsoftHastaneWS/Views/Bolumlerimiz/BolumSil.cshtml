@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "BolumSil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using UyumsoftHastaneWS.Models
+@model TibbiBolum
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Bolum Silme Sayfası
+                </div>
+                <div class="block-controls">
+                    <a href="/Bolumlerimiz/Index">Geri Dön</a>
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+
+                </div>
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                    <form action="/Bolumlerimiz/BolumSil/" method="post">
+                        <input type="hidden" name="tibbiBolum_id" value="@Model.tibbiBolum_id" />
+                        <label>@Model.adi isimli bölüm silinsin mi?</label>
+                        <input type="submit" class="btn btn-danger" name="name" value="Evet" />
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

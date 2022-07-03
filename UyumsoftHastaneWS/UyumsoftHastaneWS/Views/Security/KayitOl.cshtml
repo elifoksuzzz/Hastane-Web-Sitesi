@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "kayıtOl";
+
+}
+@using UyumsoftHastaneWS.Models
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Kayıt Oluşturma
+                </div>
+                <div class="block-controls">
+                    <a href="/Home/Index">Geri Dön</a>
+
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                </div>
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                    <form action="/Security/KayitOl" method="post" role="form">
+                        <div class="form-group">
+                            <label for="Input for adi"> Adı</label>
+                            <input type="text" class="form-control" placeholder="Hasta adını buraya giriniz" name="adi">
+                        </div>
+                        <div class="form-group">
+                            <label for="Input for adi"> Soyadı</label>
+                            <input type="text" class="form-control" placeholder="Hasta soyadını giriniz" name="soyadi">
+                        </div>
+                        <div class="form-group">
+                            <label for="Input for adi"> TC Kimlik Numarası</label>
+                            <input type="text" class="form-control" placeholder="Hasta TC No giriniz" name="kimlikNumarasi">
+                        </div>
+                        <div class="form-group">
+                            <label for="Input for adi"> Doğum Yılı</label>
+                            <input type="text" class="form-control" placeholder="Hasta Doğum Yılını buraya giriniz" name="dogumYili">
+                        </div>
+                        <div class="form-group">
+                            <label for="Input for adi"> Telefon Numarası</label>
+                            <input type="text" class="form-control" placeholder="Hekim dil bilgisini giriniz" name="telNo">
+                        </div>
+                        <div class="form-group">
+                            <label for="Input for adi">Hastalik</label>
+                            <input type="text" class="form-control" placeholder="Hekim dil bilgisini giriniz" name="hastalik">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Input for adi">Kullanıcı Adı</label>
+                            <input type="text" class="form-control" placeholder="Hekim dil bilgisini giriniz" name="kullaniciAdi">
+                        </div>
+                        <div class="form-group">
+                            <label for="Input for adi"> Parola</label>
+                            <input type="text" class="form-control" placeholder="Hekim dil bilgisini giriniz" name="parola">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Kullanıcı Id Giriniz" name="rol" value="H" hidden>
+                        </div>
+                       
+
+                        <button type="submit" class="btn btn-primary">Kaydol</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

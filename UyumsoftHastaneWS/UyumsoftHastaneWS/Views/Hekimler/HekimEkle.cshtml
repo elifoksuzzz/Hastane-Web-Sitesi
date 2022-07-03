@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Hekim Ekle";
+}
+@using UyumsoftHastaneWS.Models
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="block">
+                <div class="block-heading">
+                    <div class="main-text h2">
+                        Hekim Ekleme Sayfası
+                    </div>
+                    <div class="block-controls">
+                        <a href="/Hekimler/Index">Geri Dön</a>
+
+                        <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                    </div>
+                </div>
+                <div class="block-content-outer">
+                    <div class="block-content-inner">
+                        <form action="/Hekimler/HekimEkle" method="post" role="form">
+                            <div class="form-group">
+                                <label for="Input for adi"> Adı</label>
+                                <input type="text" class="form-control" placeholder="Hekim adını buraya giriniz" name="adi">
+                            </div>
+                            <div class="form-group">
+                                <label for="Input for adi"> Soyadı</label>
+                                <input type="text" class="form-control" placeholder="Hekim soyadını giriniz" name="soyadi">
+                            </div>
+                            <div class="form-group">
+                                <label for="Input for adi"> TC Kimlik Numarası</label>
+                                <input type="text" class="form-control" placeholder="Hekim TC No giriniz" name="kimlikNumarasi">
+                            </div>
+                            <div class="form-group">
+                                <label for="Input for adi"> Akademik Unvan</label>
+                                <input type="text" class="form-control" placeholder="Akademik Unvanını buraya giriniz" name="akademikUnvani">
+                            </div>
+                            <div class="form-group">
+                                <label for="Input for adi"> Diller</label>
+                                <input type="text" class="form-control" placeholder="Hekim dil bilgisini giriniz" name="dilBilgisi">
+                            </div>
+                            <div class="form-group">
+                                <label for="Input for adi"> Mail</label>
+                                <input type="text" class="form-control" placeholder="Hekimin mailini giriniz" name="mail">
+                            </div>
+                            <div class="form-group">
+                                <label for="Input for adi"> Eğitim </label>
+                                <input type="text" class="form-control" placeholder="Hekim eğitim bilgilerini giriniz" name="egitimBilgileri">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Input for adi"> Tıbbi Bölüm</label>
+                                <select class="form-control" name="tibbiBolum_id">
+                                    @foreach (TibbiBolum item in ViewBag.TibbiBolum)
+                                    {
+                                        <option value="@item.tibbiBolum_id">@item.adi</option>
+                                    }
+                                </select>
+                                <br />
+                            </div>
+                            <button type="submit" class="btn btn-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hekim Ekle</font></font></button>
+                            </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

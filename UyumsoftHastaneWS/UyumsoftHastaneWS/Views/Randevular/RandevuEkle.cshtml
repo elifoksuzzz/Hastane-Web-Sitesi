@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "RandevuEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using UyumsoftHastaneWS.Models
+@model List<Randevular>
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Randevu Oluşturma Sayfası
+                </div>
+                <div class="block-controls">
+                    <a href="/Randevular/Goruntule">Randevularım</a>
+
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                </div>
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                    <form action="/Randevular/RandevuEkle" method="post" role="form">
+                        <div class="form-group">
+                            <h2>@User.Identity.Name</h2>
+                            <br />
+                            @foreach (Kullanicilar item in ViewBag.Kullanicilar)
+                            {
+                                if (User.Identity.Name == item.kullaniciAdi)
+                                {
+                                    <input type="text" class="form-control" placeholder="Kullanıcı Id Giriniz" name="kullanicilar_id" value="@item.kullanicilar_id" hidden>
+     
+
+                                }
+                            }
+                            <br />
+
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label for="Input for adi"> Tıbbi Bölüm</label>
+                            <select class="form-control" name="tibbiBolum_id">
+                                @foreach (TibbiBolum item in ViewBag.TibbiBolum)
+                                {
+                                    <option value="@item.tibbiBolum_id">@item.adi</option>
+
+                                }
+                            </select>
+                            
+                            <br />
+
+                            <label for="Input for adi"> Hekim</label>
+                            <select class="form-control" name="hekim_id">
+                                @foreach (Hekimler item in ViewBag.Hekimler)
+                                {
+                                    <option value="@item.hekim_id">@item.adi @item.soyadi </option>
+                                }
+                            </select>
+                            <br />
+                            <input type="datetime" class="form-control" placeholder="Randevu tarihini buraya giriniz" name="tarih">
+                            <br />
+                        </div>
+                        <button type="submit" class="btn btn-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Randevu Oluştur</font></font></button>
+
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+

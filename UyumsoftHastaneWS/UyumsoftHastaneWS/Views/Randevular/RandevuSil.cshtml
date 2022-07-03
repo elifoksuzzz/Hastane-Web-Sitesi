@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "RandevuSil";
+}
+@using UyumsoftHastaneWS.Models
+@model Randevular
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Randevu Silme Sayfası
+                </div>
+                <div class="block-controls">
+                    <a href="/Randevular/Index">Geri Dön</a>
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+
+                </div>
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                    <form action="/Randevular/RandevuSil/" method="post">
+                        <input type="hidden" name="randevu_id" value="@Model.randevu_id" />
+                        <label>@Model.Kullanicilar.adi isimli hastanın randevusu silinsin mi?</label>
+                        <input type="submit" class="btn btn-danger" name="name" value="Evet" />
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

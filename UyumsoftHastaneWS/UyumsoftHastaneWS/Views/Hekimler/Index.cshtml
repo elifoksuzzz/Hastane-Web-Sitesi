@@ -1,0 +1,60 @@
+﻿@using UyumsoftHastaneWS.Models
+@{
+    ViewBag.Title = "Hekimler Sayfası";
+}
+@model List<Hekimler>
+
+
+
+<div class="row"></div>
+<div class="col-md-12"></div>
+<div class="block"></div>
+            <div class="block-heading">
+                <div class="block-controls">
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                    <a href="/Hekimler/HekimEkle" class="btn btn-success rounded">Hekim Ekle</a>
+                </div>
+            </div>
+            <div class="block-content-outer"></div>
+            <div class="block-content-inner"></div>
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Adı</font></font></th>
+                                <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Soyadı</font></font></th>
+                                <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Akademik Unvanı</font></font></th>
+                                <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bölüm</font></font></th>
+                                <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Diller</font></font></th>
+                                <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mail</font></font></th>
+                                <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Fotoğraf</font></font></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Hekimler hekimler in Model)
+                            {
+                            <tr class="table-primary">
+                                <th scope="row"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@hekimler.adi</font></font></th>
+                                <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@hekimler.soyadi</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@hekimler.akademikUnvani</font></font></td>
+                                @if (hekimler.TibbiBolum == null)
+                                {
+                                    <td></td>
+                                }
+                                else
+                                {
+                                    <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@hekimler.TibbiBolum.adi</font></font></td>
+                                }
+                                <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@hekimler.dilBilgisi</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> @hekimler.mail</font></font></td>   
+                                <!--<td>-->
+                                    @*<img src="@Url.Content(hekimler.imagePath)"  width="10" hight="10" />*@
+                                    <!--<img src="@hekimler.imagePath" width="100" hight="100" />
+                                </td>--> 
+                                <td> <a href="/Hekimler/HekimSil/@hekimler.hekim_id" class="btn btn-danger rounded">Sil</a></td>
+                                
+                            </tr>
+                            }
+                            </tbody> 
+                        </table>
+                    

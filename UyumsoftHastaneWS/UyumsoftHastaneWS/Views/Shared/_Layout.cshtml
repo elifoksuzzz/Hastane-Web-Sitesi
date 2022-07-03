@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] </title>
+    <link rel="stylesheet" href="~/Content/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/css/site.css" />
+    <link href="/Content/css/modern-business.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+
+        <nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="/Home/Index">
+                    <img style="width: 36px; height: 36px;" src="https://img.icons8.com/color/48/000000/heart-health.png" />
+                    <b>GÜVEN HASTANESİ      </b>
+                </a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+                        aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Kurumsal</a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                <li><a class="dropdown-item" href="/Kurumsal/AboutUs">Hakkımızda</a></li>
+                                <li><a class="dropdown-item" href="/Kurumsal/PatientRights">Hasta Hak ve Sorumlulukları</a></li>
+                                <li><a class="dropdown-item" href="/Kurumsal/VisitorRights">Ziyaretçi ve Refakatçi Politikası</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Bölümlerimiz</a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                <li><a class="dropdown-item" href="/Bolumlerimiz/Emergency">Acil Servis</a></li>
+                                <li><a class="dropdown-item" href="/Bolumlerimiz/Brain">Beyin ve Sinir Cerrahisi</a></li>
+                                <li><a class="dropdown-item" href="/Bolumlerimiz/CheckUp">Check-Up</a></li>
+                                <li><a class="dropdown-item" href="/Bolumlerimiz/Child">Çocuk Sağlığı ve Hastalıkları</a></li>
+                                <li><a class="dropdown-item" href="/Bolumlerimiz/InternalMedicine">Dahiliye</a></li>
+                                <li><a class="dropdown-item" href="/Bolumlerimiz/Dermatology">Dermatoloji</a></li>
+                                <li><a class="dropdown-item" href="/Bolumlerimiz/GeneralSurgery">Genel Cerrahi</a></li>
+                                <li><a class="dropdown-item" href="/Bolumlerimiz/Eyes">Göz Hastalıkları</a></li>
+                                <li><a class="dropdown-item" href="/Bolumlerimiz/Otolaryngology">Kulak Burun Boğaz</a></li>
+                                <li><a class="dropdown-item" href="/Bolumlerimiz/Neurology">Nöroloji</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="/Hekimler/Index">Hekimlerimiz</a></li>
+                        @if (User.IsInRole("D"))
+                        {
+                            <li class="nav-item"><a class="nav-link" href="/Randevular/Index">Randevu Görüntüle</a></li>
+
+                        }
+                        else
+                        {
+                            <li class="nav-item"><a class="nav-link" href="/Randevular/RandevuEkle">Randevu Al</a></li>
+                        }
+                        <li class="nav-item"><a class="nav-link" href="/Iletisim/Contact">İletişim</a></li>
+                        @*<div class="btn-group-vertical">*@
+                        @if (User.IsInRole("A") || User.IsInRole("H") || User.IsInRole("D"))
+                        {
+
+                            <li class="nav-item"><a href="/Security/LogOut" class="btn btn-danger bg-success">Çıkış Yap</a></li>
+                            <li class="nav-item"><a href="#" class="btn btn-danger bg-success">Hoş Geldin @User.Identity.Name</a></li>
+                            if (User.IsInRole("A"))
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Admin Paneli</a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                        <li><a class="dropdown-item" href="/Hekimler/Index">Hekim Düzenle</a></li>
+                                        <li><a class="dropdown-item" href="/Bolumlerimiz/Index">Bölüm Düzenle</a></li>
+                                    </ul>
+                                </li>
+                            }
+                        }
+                        else
+                        {
+                            <li class="nav-item"><a href="/Security/Login" class="btn btn-danger bg-success">Giriş Yap</a></li>
+                            <li class="nav-item"><a href="/Security/KayitOl" class="btn btn-danger bg-success">Kayıt Ol</a></li>
+                        }
+
+
+                        @*</div>*@
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <br /><br /><br /><br />
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer bg-primary text-light">
+        <div class="container">
+            &copy; 2021 - Güven Hastanesi / ElİF ÖKSÜZ
+        </div>
+    </footer>
+    <script src="~/Content/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/Content/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Goruntule";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int id = 0;
+}
+@using UyumsoftHastaneWS.Models
+
+@model List<Randevular>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="block-controls">
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                </div>
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                               
+                                <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tarih</font></font></th>
+                                <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Doktor</font></font></th>
+                                <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bölüm</font></font></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            @foreach (Kullanicilar k in ViewBag.Kullanicilar)
+                            {
+
+                                if (User.Identity.Name == k.kullaniciAdi)
+                                {
+                                    id = k.kullanicilar_id;
+                                }
+                            }
+
+                            @foreach (Randevular r in Model)
+                            {
+
+                                if (r.kullanicilar_id == id)
+                                {
+                                    <tr>
+                                        <th scope="row"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@r.tarih</font></font></th>
+                                        <th scope="row"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@r.Hekimler.adi</font></font></th>
+                                        <th scope="row"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@r.TibbiBolum.adi</font></font></th>
+                                    </tr>
+                                }
+                                else if (r.kullanicilar_id == 0)
+                                {
+                                    <tr>
+                                        <th scope="row"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Randevu Yok</font></font></th>
+                                    </tr>
+                                }
+                                else
+                                {
+
+                                }
+                            }
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

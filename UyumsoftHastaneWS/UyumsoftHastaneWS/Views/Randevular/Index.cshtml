@@ -1,0 +1,198 @@
+﻿
+@{
+    ViewBag.Title = "Randevu Al";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using UyumsoftHastaneWS.Models
+
+@model List<Randevular>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="block-controls">
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                    <a href="/Randevular/RandevuEkle" class="btn btn-success rounded">Randevu Oluştur</a>
+                </div>
+            </div>
+
+            <div class="block-content-outer"></div>
+            <div class="block-content-inner"></div>
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kullanıcı</font></font></th>
+                        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tarih</font></font></th>
+                        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Doktor</font></font></th>
+                        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bölüm</font></font></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Randevular r in Model)
+                    {
+                        <tr class="table-primary">
+                            <th scope="row"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@r.Kullanicilar.kullaniciAdi</font></font></th>
+                            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@r.tarih</font></font></td>
+                            @if (r.Hekimler == null)
+                            {
+                                <td></td>
+                            }
+                            else
+                            {
+                                <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@r.Hekimler.adi</font></font></td>
+                            }
+                            @if (r.TibbiBolum == null)
+                            {
+                                <td></td>
+                            }
+                            else
+                            {
+                                <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@r.TibbiBolum.adi</font></font></td>
+                            }
+
+
+                            <td> <a href="/Randevular/RandevularSil/@r.randevu_id" class="btn btn-danger rounded">Sil</a></td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@*@{
+        ViewBag.Title = "Randevu Al";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    @using UyumsoftHastaneWS.Models
+
+    @model List<Randevular>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="block">
+                <div class="block-heading">
+                    <div class="block-controls">
+                        <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                        <a href="/Randevular/RandevuEkle" class="btn btn-success rounded">Randevu Oluştur</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @{
+            ViewBag.Title = "Randevu Al";
+            Layout = "~/Views/Shared/_Layout.cshtml";
+        }
+
+        @using UyumsoftHastaneWS.Models
+
+        @model List<Randevular>
+
+        <div class="row"></div>
+        <div class="col-md-12">
+            <div class="block">
+                <div class="block-heading">
+                    <div class="block-controls">
+                        <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                        <a href="/Randevular/RandevuEkle" class="btn btn-success rounded">Randevu Oluştur</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="block-content-outer"></div>
+    <div class="block-content-inner"></div>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kullanıcı</font></font></th>
+                <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tarih</font></font></th>
+                <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Doktor</font></font></th>
+                <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bölüm</font></font></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Randevular r in Model)
+            {
+                <tr class="table-primary">
+                    <th scope="row"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@r.Kullanicilar.kullaniciAdi</font></font></th>
+                    <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@r.tarih</font></font></td>
+                    @if (r.Hekimler == null)
+                    {
+                        <td></td>
+                    }
+                    else
+                    {
+                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@r.Hekimler.adi</font></font></td>
+                    }
+                    @if (r.TibbiBolum == null)
+                    {
+                        <td></td>
+                    }
+                    else
+                    {
+                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@r.TibbiBolum.adi</font></font></td>
+                    }
+
+
+                    <td> <a href="/Randevular/RandevularSil/@r.randevu_id" class="btn btn-danger rounded">Sil</a></td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+    <div class="block-content-outer"></div>
+    <div class="block-content-inner"></div>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kullanıcı</font></font></th>
+                <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tarih</font></font></th>
+                <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Doktor</font></font></th>
+                <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bölüm</font></font></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Randevular r in Model)
+            {
+                <tr class="table-primary">
+                    <th scope="row"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@r.Kullanicilar.kullaniciAdi</font></font></th>
+                    <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@r.tarih</font></font></td>
+                    @if (r.Hekimler == null)
+                    {
+                        <td></td>
+                    }
+                    else
+                    {
+                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@r.Hekimler.adi</font></font></td>
+                    }
+                    @if (r.TibbiBolum == null)
+                    {
+                        <td></td>
+                    }
+                    else
+                    {
+                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@r.TibbiBolum.adi</font></font></td>
+                    }
+
+
+                    <td> <a href="/Randevular/RandevularSil/@r.randevu_id" class="btn btn-danger rounded">Sil</a></td>
+
+                </tr>
+            }
+        </tbody>
+    </table>*@
+
+

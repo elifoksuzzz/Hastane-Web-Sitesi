@@ -1,0 +1,41 @@
+﻿@using UyumsoftHastaneWS.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<TibbiBolum>
+
+<div class="row"></div>
+<div class="col-md-12"></div>
+<div class="block"></div>
+<div class="block-heading">
+    <div class="block-controls">
+        <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+        <a href="/Bolumlerimiz/BolumEkle" class="btn btn-success rounded">Bölüm Ekle</a>
+    </div>
+</div>
+
+<div class="block-content-outer"></div>
+<div class="block-content-inner"></div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Adı</font></font></th>
+            <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hizmetleri</font></font></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (TibbiBolum tb in Model)
+        {
+            <tr class="table-primary">
+                <th scope="row"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@tb.adi</font></font></th>
+                <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@tb.hizmetleri</font></font></td>
+
+                <td> <a href="/Bolumlerimiz/BolumSil/@tb.tibbiBolum_id" class="btn btn-danger rounded">Sil</a></td>
+
+            </tr>
+        }
+    </tbody>
+
+</table>
